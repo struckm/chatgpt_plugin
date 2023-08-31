@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Baseball scores",
+    "name_for_model": "baseball-scores",
+    "description_for_human": "Check teams sports scores for the current year.",
+    "description_for_model": "Help users retrieve current baseball scores.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "http://localhost:3000/openapi.yaml"
+    },
+    "logo_url": "http://localhost:3000/logo.png",
+    "contact_email": "markstruck@comcast.net",
+    "legal_info_url": "http://localhost:3000/legal"
+}
