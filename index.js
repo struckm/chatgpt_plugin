@@ -1,11 +1,34 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const cors = require('cors');
+
+const app = express();
 const port = 3000;
 
-// Define a route for the root URL
-app.get('/', (req, res) => {
-  res.send('Hello, World! This is your Express server.');
+const corsOptions = {
+  origin: '*', // Allow requests from any origin
+};
+
+// Enable CORS middleware
+app.use(cors(corsOptions));
+
+
+// API's for ChatGPT manfifest
+app.get('/.well-known/ai-plugin.json', (req, res) => {
+  const filePath = path.join(__dirname, '.well-known/ai-plugin.json');
+
+  console.log(filePath);
+
+
+  res.sendFile(filePath, (err) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error sending the file.');
+      } else {
+          console.log('File sent: ai-plugin.json');
+      }
+  });
+
 });
 
 app.get('/openapi.yaml', (req, res) => {
@@ -21,6 +44,14 @@ app.get('/openapi.yaml', (req, res) => {
   });
 });
   
+
+// API's for ChatGPT
+app.get('/baseball_scores', (req, res) => {
+  const baseballScores = ['100', '101', '105', '110'];
+
+  res.send(baseballScores);
+
+})
 
 // Start the server
 app.listen(port, () => {

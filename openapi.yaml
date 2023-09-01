@@ -4,7 +4,8 @@ info:
   description: A plugin to allow a user to ask questions about real time baseball scores using ChatGPT.
   version: 'v1'
 servers:
-  - url: http://localhost:3333
+  - url: http://localhost:3000
+    description: Development server
 paths:
   /baseball_scores:
     get:

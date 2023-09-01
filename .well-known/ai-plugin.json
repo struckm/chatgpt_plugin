@@ -1,7 +1,7 @@
 {
     "schema_version": "v1",
     "name_for_human": "Baseball scores",
-    "name_for_model": "baseball-scores",
+    "name_for_model": "baseball_scores",
     "description_for_human": "Check teams sports scores for the current year.",
     "description_for_model": "Help users retrieve current baseball scores.",
     "auth": {
