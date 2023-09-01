@@ -13,7 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mlb-stats-api": "^1.11.0",
+    "mlb-stats-api": "github:struckm/mlb-stats-api",
     "nodemon": "^3.0.1"
   }
 }

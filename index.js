@@ -31,7 +31,8 @@ app.get('/baseball_scores', (req, res) => {
 })
 
 app.get('/test_mlb_stats', async (req, res) => {
-  const response = await mlbStats.getSchedule({ params: { sportId: 1 } });
+  // const response = await mlbStats.getSchedule({ paramPath: { sportId: 1 } });
+  const response = await mlbStats.getAttendance({ params: { teamId: 112 }});
   const result = await response.json();
   console.log(result);
   res.send('successfully called test ap');
