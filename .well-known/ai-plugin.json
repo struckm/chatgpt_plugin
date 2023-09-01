@@ -9,9 +9,9 @@
     },
     "api": {
         "type": "openapi",
-        "url": "http://localhost:3000/openapi.yaml"
+        "url": "http://localhost:3000/.well-known/openapi.yaml"
     },
-    "logo_url": "http://localhost:3000/logo.png",
+    "logo_url": "http://localhost:3000/.well-known/logo.png",
     "contact_email": "markstruck@comcast.net",
     "legal_info_url": "http://localhost:3000/legal"
 }

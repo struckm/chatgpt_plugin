@@ -15,38 +15,8 @@ const corsOptions = {
 // Enable CORS middleware
 app.use(cors(corsOptions));
 
-
-// API's for ChatGPT manfifest
-app.get('/.well-known/ai-plugin.json', (req, res) => {
-  const filePath = path.join(__dirname, '.well-known/ai-plugin.json');
-
-  console.log(filePath);
-
-
-  res.sendFile(filePath, (err) => {
-      if (err) {
-          console.error(err);
-          res.status(500).send('Error sending the file.');
-      } else {
-          console.log('File sent: ai-plugin.json');
-      }
-  });
-
-});
-
-app.get('/openapi.yaml', (req, res) => {
-    const filePath = path.join(__dirname, '.well-known/openapi.yaml');
-
-    res.sendFile(filePath, (err) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Error sending the file.');
-        } else {
-            console.log('File sent: openapi.yaml');
-        }
-  });
-});
-  
+// Serve up static assets
+app.use(express.static(path.join(__dirname, './')));
 
 // API's for ChatGPT
 app.get('/baseball_scores', (req, res) => {
