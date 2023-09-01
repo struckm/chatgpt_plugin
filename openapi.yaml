@@ -1,29 +1,29 @@
 openapi: 3.0.1
 info:
-  title: TODO Plugin
-  description: A plugin that allows the user to create and manage a TODO list using ChatGPT.
+  title: Baseball scores Plugin
+  description: A plugin to allow a user to ask questions about real time baseball scores using ChatGPT.
   version: 'v1'
 servers:
   - url: http://localhost:3333
 paths:
-  /todos:
+  /baseball_scores:
     get:
-      operationId: getTodos
-      summary: Get the list of todos
+      operationId: getBaseballScores
+      summary: Get baseball scores
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getTodosResponse'
+                $ref: '#/components/schemas/getBaseballScoresResponse'
 components:
   schemas:
-    getTodosResponse:
+    getBaseballScoresResponse:
       type: object
       properties:
-        todos:
+        baseball_scores:
           type: array
           items:
             type: string
-          description: The list of todos.
+          description: List of current baseball scores.
