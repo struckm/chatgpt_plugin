@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: Baseball scores Plugin
   description: A plugin to allow a user to ask questions about real time baseball scores using ChatGPT.
-  version: 'v1'
+  version: '1.1.0'
 servers:
   - url: http://localhost:3000
     description: Development server
@@ -11,8 +11,14 @@ paths:
     get:
       operationId: getBaseballScores
       summary: Get baseball scores
+      parameters:
+        - name: "team"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
       responses:
-        "200":
+        200:
           description: OK
           content:
             application/json:
@@ -23,8 +29,12 @@ components:
     getBaseballScoresResponse:
       type: object
       properties:
-        baseball_scores:
-          type: array
-          items:
-            type: string
-          description: List of current baseball scores.
+        status:
+          type: "string"
+        data:
+          type: "string"
+          properties: 
+            score:
+              type: "string"
+        error:
+          type: "string"

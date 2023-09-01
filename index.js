@@ -32,7 +32,7 @@ app.get('/.well-known/ai-plugin.json', (req, res) => {
 });
 
 app.get('/openapi.yaml', (req, res) => {
-    const filePath = path.join(__dirname, 'openapi.yaml');
+    const filePath = path.join(__dirname, '.well-known/openapi.yaml');
 
     res.sendFile(filePath, (err) => {
         if (err) {
@@ -47,10 +47,14 @@ app.get('/openapi.yaml', (req, res) => {
 
 // API's for ChatGPT
 app.get('/baseball_scores', (req, res) => {
-  const baseballScores = ['100', '101', '105', '110'];
-
-  res.send(baseballScores);
-
+  console.log(req.query.team);
+  res.json({
+    status: 'success',
+    data: {
+      score: 9
+    },
+    error: null
+  });
 })
 
 // Start the server
